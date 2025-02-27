@@ -1,7 +1,19 @@
 function getAPIData(){
+
+    var input =  document.getElementById("search")
     var request = new XMLHttpRequest()
-    request.open("get","https://restcountries.com/v3.1/name/bharat")
+
+    if (input.value){
+    request.open("get","https://restcountries.com/v3.1/name/" + input.value)
+    }
+    else {
+        request.open("get","https://restcountries.com/v3.1/name/bharat")
+    }
+
+    input.value = ""
     request.send()
+
+
 
     request.addEventListener("load",()=>{
         let data =  JSON.parse(request.responseText)[0]
