@@ -1,0 +1,54 @@
+*{
+    margin : 0;
+}
+
+.main{
+    width: 100vw;
+}
+
+.first, .second{
+    width: 80%;
+    margin: auto;
+}
+
+.first form{
+    display: flex;
+}
+
+.first input{
+    border: 2px solid black;
+    width: 80%;
+    padding: 10px;
+    margin: 2px 0px;
+}
+
+.first button{
+    background-color: black;
+    color: white;
+    margin: 2px 2px;
+}
+
+.second table{
+    border: 2px solid black;
+    width: 85%;
+}
+
+.second tr{
+    background-color: blue;
+    color: white;
+}
+
+.second tr:nth-child(odd){
+    background-color: skyblue;
+}
+
+.second th,td{
+    padding: 3px;
+}
+
+.second a{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+
+}
