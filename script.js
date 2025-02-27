@@ -1,4 +1,4 @@
-function getAPIData() {
+async function getAPIData() {
   var input = document.getElementById("search");
   var name = "";
   if (input.value) {
@@ -6,10 +6,10 @@ function getAPIData() {
   } else {
     name = "bharat";
   }
-  fetch("https://restcountries.com/v3.1/name/" + name)
-    .then((response) => {
-      response.json().then((data) => {
-         data = data[0];
+  try{
+    var response = await fetch("https://restcountries.com/v3.1/name/" + name)
+  response = await response.json()
+         data = response[0];
         document.getElementById("name").innerHTML = data.name.official;
         document.getElementById("capital").innerHTML = data.capital;
         document.getElementById("flags").src = data.flags.png;
@@ -24,13 +24,10 @@ function getAPIData() {
         document.getElementById("unMember").innerHTML = data.unMember;
         document.getElementById("independent").innerHTML = data.independent;
         document.getElementById("maps").href = data.maps.googleMaps;
-      });
-    })
-    .catch((error) => {
-      alert("Invalid Country Name");
-    });
-
-  request.addEventListener("load", () => {});
+  }
+  catch (error){
+    alert("Invalid Country Name");
+  }
 }
 
 getAPIData();
